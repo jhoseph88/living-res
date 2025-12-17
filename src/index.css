@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0b1220;
+  --muted: rgba(148, 163, 184, 0.6);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  /* Avoid @apply for gradient color stops (from- / via- / to- are not supported with @apply).
+     Use a direct CSS gradient here to match the Tailwind slate-900 -> slate-800 look. */
+  background: linear-gradient(135deg, #0f1724 0%, #0b1220 100%);
+  color: #e6eef8; /* similar to text-slate-100 */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", "Courier New", monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  -webkit-font-size-adjust: none;
+}
+
+a {
+  font-weight: 500;
+  color: #34d399; /* emerald-300 */
+}
+
+/* Small utility components */
+/* .badge and .card replaced by utility classes used directly in JSX */
+
+.muted {
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* make pre/code blocks look like GitHub readme */
+.code-block {
+  background-color: rgba(15, 23, 36, 0.4);
+  border: 1px solid rgba(64, 74, 92, 0.6);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+}
+
+/* Slight heading style for the inline ## label */
+.section-hash {
+  color: #34d399; /* emerald-400 */
+  margin-right: 0.5rem;
+  font-weight: 700;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: #ffffff;
+    color: #0f1724;
+  }
+}
