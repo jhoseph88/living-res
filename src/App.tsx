@@ -76,13 +76,14 @@ export default function LivingReadme() {
 
   const systemPrompt = `You are an AI assistant embedded in Cameron Barnes' portfolio website. You have detailed knowledge about his professional experience:
 
-- Senior Software Engineer at Zapier (Jan 2024 – Present): Working on Chatbots product, led API migration saving $1,477/month, built Private Knowledge integration with Google Docs/Notion serving 3,000+ weekly active users
-- Senior Software Engineer at Mailchimp (May 2021 – Dec 2023): Pioneered first generative AI features, led authentication framework between GCP and AWS, saved company $500k/year through data retention improvements
-- Manager/Co-founder at Fugue AI (Oct 2022 – January 2024): Built AI art studio with DALL-E 2 and Stable Diffusion, grew to 500+ production users
-- Software Engineer at Pindrop Security (Jan 2020 – May 2021): Built Golang and Python microservices on Kubernetes
-- Software Engineer at Capital One (Sep 2017 – Jun 2019): Full-stack engineer focusing on Java API development and infrastructure automation
-- Education: University of Michigan, BS in Computer Science (May 2017, GPA 3.7)
-- Strong skills in: Python, Go, JavaScript/TypeScript, AWS, GCP, Kubernetes, PostgreSQL/MySQL, AI/ML integration
+- Senior Fullstack Engineer at Zapier (Jan 2024 – Present): DRI for 8-person Chatbots team (1.6M ARR, 4,700+ paid accounts). Led API migration and architecture modernization to OpenAPI-backed, API-first Fastify architecture saving $1,477.50/month in Vercel costs. Built in-house document conversion API saving >$100k/year. Built Private Knowledge integration with Google Docs/Notion (~1,300 connections, ~700 users) and web-scraped knowledge sources for 3,000+ weekly active users. Enhanced system reliability with background jobs architecture and Zapier events integration. Mentored junior engineers. Established testing infrastructure with SRE team.
+- Senior Software Engineer at Mailchimp (May 2021 – Dec 2023): Pioneered first generative AI features in emails and automations. Led authentication framework between Mailchimp GCP and Intuit AWS. Partnered with data science for ML-powered content generation. Saved $500k/year through data retention policies. SME/lead for Creative Assistant scraper microservices (Python, JavaScript, GCP). Reduced API failures by ~80% through hardening and refactoring.
+- Co-founder / Engineer at Fugue Auto (Aug 2023 – Jan 2024): Built multi-modal AI-assisted vehicle diagnostic and repair app leveraging LLMs and vehicle sensor data for fleet management and connected operations.
+- Manager / Co-founder at Fugue AI (Oct 2022 – Jan 2024): Co-developed AI art studio using DALL-E 2 and Stable Diffusion deployed on AWS Sagemaker, grew to 500+ production users.
+- Software Engineer at Pindrop Security (Jan 2020 – May 2021): Built Golang and Python microservices for RabbitMQ-driven distributed system on Kubernetes/AWS with Elasticsearch, Redis, and Datadog.
+- Software Engineer at Capital One (Sep 2017 – Jun 2019): Full-stack engineer on consumer-facing app, led cloud migration, built PySpark ETL pipelines, drove DevOps culture.
+- Education: University of Michigan - Ann Arbor, BS in Computer Science (May 2017, GPA 3.7)
+- Skills: TypeScript, Python, JavaScript, Go, SQL, Node.js, React, Fastify, tRPC, Express, LLMs, RAG, vector databases, agentic systems, OpenAI/Anthropic APIs, Vercel AI SDK, AWS, GCP, Docker, Kubernetes, PostgreSQL, Redis, Elasticsearch, Git, Datadog, PagerDuty, OpenAPI
 - AWS Certified Solutions Architect – Associate (2018)
 
 Answer questions concisely and enthusiastically. If asked about specific projects or technical details not provided, acknowledge you'd need Cameron to provide more specifics but give thoughtful general answers based on his background. Keep responses under 100 words.`;
@@ -117,12 +118,13 @@ Answer questions concisely and enthusiastically. If asked about specific project
       } else {
         // Fallback responses when WebLLM isn't available
         const fallbackResponses = {
-          'experience': "Cameron is currently a Senior Software Engineer at Zapier working on the Chatbots product. He's led major API migrations, built Private Knowledge integrations with Google Docs/Notion, and has 7+ years of experience across companies like Mailchimp, Pindrop Security, and Capital One.",
-          'skills': "Cameron's technical stack includes Python, Go, JavaScript/TypeScript, AWS, GCP, Kubernetes, PostgreSQL/MySQL, and AI/ML integration. He's AWS Certified and has strong experience in distributed systems and cloud architecture.",
+          'experience': "Cameron is currently a Senior Fullstack Engineer at Zapier, serving as DRI for the 8-person Chatbots team (1.6M ARR). He's led API migrations, built RAG pipelines, LLM integrations, and knowledge sync features for 3,000+ weekly active users. Previously he pioneered generative AI features at Mailchimp and has 7+ years of experience.",
+          'skills': "Cameron's technical stack includes TypeScript, Python, JavaScript, Go, SQL, Node.js, React, Fastify, tRPC, plus AI/ML tools like LLMs, RAG, vector databases, agentic systems, and OpenAI/Anthropic APIs. Infrastructure: AWS, GCP, Docker, Kubernetes, PostgreSQL, Redis, Elasticsearch. He's AWS Certified Solutions Architect.",
           'contact': "You can reach Cameron via email at ccbarnes88@icloud.com or connect with him on LinkedIn and GitHub. Check the links at the top of this page!",
-          'mailchimp': "At Mailchimp, Cameron pioneered the first generative AI features in emails and automations, led authentication framework work between GCP and AWS, and saved the company $500k/year through data retention improvements.",
-          'fugue': "Fugue AI is Cameron's side project where he co-founded an AI art studio using models like DALL-E 2 and Stable Diffusion. It's grown to 500+ production users and is deployed on AWS.",
-          'default': "That's a great question! Cameron has extensive experience in full-stack development, AI integration, and building scalable systems. He's currently at Zapier working on Chatbots. Feel free to reach out to him directly for more specific details!"
+          'mailchimp': "At Mailchimp, Cameron pioneered the first generative AI features in emails and automations, led authentication framework work between Mailchimp GCP and Intuit AWS, saved $500k/year through data retention policies, and reduced API failures by ~80% through service hardening.",
+          'fugue': "Cameron co-founded two ventures: Fugue AI, an AI art studio using DALL-E 2 and Stable Diffusion (500+ users, deployed on AWS Sagemaker), and Fugue Auto, a multi-modal AI-assisted vehicle diagnostic and repair app leveraging LLMs and vehicle sensor data.",
+          'zapier': "At Zapier, Cameron is DRI for the Chatbots team (1.6M ARR, 4,700+ paid accounts). He led API migration to OpenAPI-backed Fastify architecture saving $1,477.50/month, built in-house document conversion saving >$100k/year, and built Private Knowledge integration with Google Docs/Notion for 3,000+ weekly active users.",
+          'default': "That's a great question! Cameron has 7+ years of experience building AI-powered products and backend infrastructure. He's currently at Zapier leading the Chatbots team, working on RAG pipelines, LLM integrations, and agentic APIs. Feel free to reach out to him directly for more specific details!"
         };
 
         const response = Object.entries(fallbackResponses).find(([key]) => 
@@ -143,14 +145,14 @@ Answer questions concisely and enthusiastically. If asked about specific project
   };
 
   const skills: Skill[] = [
+    { name: 'TypeScript/JavaScript', level: 95 },
     { name: 'Python', level: 95 },
-    { name: 'JavaScript/TypeScript', level: 95 },
     { name: 'Go', level: 85 },
-    { name: 'AWS/GCP', level: 90 },
-    { name: 'PostgreSQL/MySQL', level: 88 },
-    { name: 'Kubernetes/Docker', level: 85 },
-    { name: 'React', level: 82 },
-    { name: 'AI/ML Integration', level: 88 },
+    { name: 'Node.js/React/Fastify', level: 90 },
+    { name: 'LLMs/RAG/Agentic AI', level: 92 },
+    { name: 'AWS/GCP/Docker/K8s', level: 90 },
+    { name: 'PostgreSQL/Redis/Elasticsearch', level: 88 },
+    { name: 'Datadog/PagerDuty/OpenAPI', level: 85 },
   ];
 
   const colorMap: Record<string, { dotBg: string; ring: string; projectHover: string }> = {
@@ -158,6 +160,7 @@ Answer questions concisely and enthusiastically. If asked about specific project
     blue: { dotBg: 'bg-blue-400', ring: 'ring-blue-400/20', projectHover: 'hover:border-blue-500/50' },
     purple: { dotBg: 'bg-purple-400', ring: 'ring-purple-400/20', projectHover: 'hover:border-purple-500/50' },
     orange: { dotBg: 'bg-orange-400', ring: 'ring-orange-400/20', projectHover: 'hover:border-orange-500/50' },
+    cyan: { dotBg: 'bg-cyan-400', ring: 'ring-cyan-400/20', projectHover: 'hover:border-cyan-500/50' },
   };
 
   return (
@@ -190,7 +193,7 @@ Answer questions concisely and enthusiastically. If asked about specific project
           <h1 className="text-4xl font-bold mb-2 flex items-center gap-3">
             <span className="animate-pulse">👋</span> Hi, I'm Cameron Barnes
           </h1>
-          <p className="text-xl text-slate-400 mb-4">Senior Software Engineer @ Zapier</p>
+          <p className="text-xl text-slate-400 mb-4">Senior Fullstack Engineer @ Zapier</p>
           <div className="flex gap-2 flex-wrap">
             <span className="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-emerald-400 text-sm">
               🚀 Full-Stack Development
@@ -199,7 +202,7 @@ Answer questions concisely and enthusiastically. If asked about specific project
               🤖 AI Integration
             </span>
             <span className="px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-400 text-sm">
-              ⚡ Developer Tools
+              ⚡ RAG & Agentic Systems
             </span>
             <span className="px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 text-sm">
               📍 Atlanta, GA
@@ -214,11 +217,11 @@ Answer questions concisely and enthusiastically. If asked about specific project
             ## About Me
           </h2>
           <p className="text-slate-300 leading-relaxed">
-            Senior software engineer with 7+ years of experience building scalable systems and AI-powered products.
-            Proven track record of technical leadership on high-revenue teams, driving cost savings through
-            architectural improvements, and delivering customer-focused features leveraging LLMs and generative AI.
-            Currently at Zapier working on the Chatbots product, leading API migrations and building integrations
-            that serve thousands of users.
+            Senior software engineer with 7+ years of experience building AI-powered products and backend infrastructure.
+            At Zapier, led architecture and development of a chatbot platform serving 3,000+ weekly active users and $1.6M ARR
+            — including RAG pipelines, LLM integrations, knowledge sync, and agentic APIs. Previously pioneered generative AI
+            features at Mailchimp. Comfortable owning work end-to-end across the full stack, from product concept to production.
+            Looking for roles at the intersection of AI and real user impact.
           </p>
         </section>
 
@@ -230,8 +233,9 @@ Answer questions concisely and enthusiastically. If asked about specific project
           </h2>
           <div className="space-y-4">
             {([
-              { company: 'Zapier', role: 'Senior Software Engineer', period: 'Jan 2024 – Present', color: 'emerald' },
+              { company: 'Zapier', role: 'Senior Fullstack Engineer', period: 'Jan 2024 – Present', color: 'emerald' },
               { company: 'Mailchimp', role: 'Senior Software Engineer', period: 'May 2021 – Dec 2023', color: 'blue' },
+              { company: 'Fugue Auto', role: 'Co-founder / Engineer', period: 'Aug 2023 – Jan 2024', color: 'cyan' },
               { company: 'Fugue AI', role: 'Manager / Co-founder', period: 'Oct 2022 – Jan 2024', color: 'purple' },
               { company: 'Pindrop Security', role: 'Software Engineer', period: 'Jan 2020 – May 2021', color: 'orange' },
               { company: 'Capital One', role: 'Software Engineer', period: 'Sep 2017 – Jun 2019', color: 'emerald' },
@@ -286,27 +290,27 @@ Answer questions concisely and enthusiastically. If asked about specific project
             {([
               {
                 name: 'Zapier Chatbots API Migration',
-                desc: 'Led OpenAPI-backed API modernization saving $1,477/month in Vercel costs for 4,700+ paid accounts',
-                tech: ['Python', 'FastAPI', 'OpenAPI'],
+                desc: 'Led OpenAPI-backed architecture modernization as DRI for 8-person team (1.6M ARR), saving $1,477.50/month in Vercel costs for 4,700+ paid accounts',
+                tech: ['TypeScript', 'Fastify', 'OpenAPI', 'tRPC'],
                 color: 'emerald'
               },
               {
                 name: 'Private Knowledge Integration',
-                desc: 'Built Google Docs/Notion integration creating ~1,300 connections for 3,000+ weekly active users',
-                tech: ['Python', 'LLMs', 'OAuth'],
+                desc: 'Built Google Docs/Notion integration (~1,300 connections, ~700 users) and web-scraped knowledge sources for 3,000+ weekly active users',
+                tech: ['Python', 'LLMs', 'RAG', 'OAuth'],
                 color: 'blue'
               },
               {
                 name: 'Mailchimp AI Features',
-                desc: 'Pioneered first generative AI features in emails and automations with cross-functional team',
-                tech: ['Python', 'JavaScript', 'ML'],
+                desc: 'Pioneered first generative AI features in emails and automations; saved $500k/year through data retention policies',
+                tech: ['Python', 'JavaScript', 'ML', 'GCP'],
                 color: 'purple'
               },
               {
-                name: 'Fugue AI Art Studio',
-                desc: 'Co-developed AI art studio using DALL-E 2 and Stable Diffusion deployed in AWS',
-                tech: ['Python', 'AWS', 'AI Models'],
-                color: 'orange'
+                name: 'Fugue Auto',
+                desc: 'Built multi-modal AI-assisted vehicle diagnostic and repair app leveraging LLMs and vehicle sensor data for fleet management',
+                tech: ['Python', 'LLMs', 'AI Models'],
+                color: 'cyan'
               },
             ] as Project[]).map((project, i) => (
               <div key={i} className={`p-5 bg-slate-800/50 rounded-lg border border-slate-700 ${colorMap[project.color].projectHover} transition-all group`}>
