@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { MessageSquare, Github, Linkedin, Mail, Terminal, Sparkles, Code2, Zap, Award, ExternalLink, Send, Bot, User } from 'lucide-react';
+import { MessageSquare, Github, Linkedin, Mail, Terminal, Sparkles, Code2, Zap, Award, ExternalLink, Send, Bot, User, Rocket } from 'lucide-react';
 
 interface Message {
   role: 'user' | 'assistant' | 'system';
@@ -78,8 +78,8 @@ export default function LivingReadme() {
 
 - Senior Fullstack Engineer at Zapier (Jan 2024 – Present): DRI for 8-person Chatbots team (1.6M ARR, 4,700+ paid accounts). Led API migration and architecture modernization to OpenAPI-backed, API-first Fastify architecture saving $1,477.50/month in Vercel costs. Built in-house document conversion API saving >$100k/year. Built Private Knowledge integration with Google Docs/Notion (~1,300 connections, ~700 users) and web-scraped knowledge sources for 3,000+ weekly active users. Enhanced system reliability with background jobs architecture and Zapier events integration. Mentored junior engineers. Established testing infrastructure with SRE team.
 - Senior Software Engineer at Mailchimp (May 2021 – Dec 2023): Pioneered first generative AI features in emails and automations. Led authentication framework between Mailchimp GCP and Intuit AWS. Partnered with data science for ML-powered content generation. Saved $500k/year through data retention policies. SME/lead for Creative Assistant scraper microservices (Python, JavaScript, GCP). Reduced API failures by ~80% through hardening and refactoring.
-- Co-founder / Engineer at Fugue Auto (Aug 2023 – Jan 2024): Built multi-modal AI-assisted vehicle diagnostic and repair app leveraging LLMs and vehicle sensor data for fleet management and connected operations.
-- Manager / Co-founder at Fugue AI (Oct 2022 – Jan 2024): Co-developed AI art studio using DALL-E 2 and Stable Diffusion deployed on AWS Sagemaker, grew to 500+ production users.
+- Co-founder / Engineer at Fugue Auto (Aug 2023 – Jan 2024): Side project. Built multi-modal AI-assisted vehicle diagnostic and repair app leveraging LLMs and vehicle sensor data for fleet management and connected operations.
+- Co-founder / Engineer at Fugue AI (Oct 2022 – Jan 2024): Side project. Co-developed AI art studio using DALL-E 2 and Stable Diffusion deployed on AWS Sagemaker, grew to 500+ production users.
 - Software Engineer at Pindrop Security (Jan 2020 – May 2021): Built Golang and Python microservices for RabbitMQ-driven distributed system on Kubernetes/AWS with Elasticsearch, Redis, and Datadog.
 - Software Engineer at Capital One (Sep 2017 – Jun 2019): Full-stack engineer on consumer-facing app, led cloud migration, built PySpark ETL pipelines, drove DevOps culture.
 - Education: University of Michigan - Ann Arbor, BS in Computer Science (May 2017, GPA 3.7)
@@ -235,8 +235,6 @@ Answer questions concisely and enthusiastically. If asked about specific project
             {([
               { company: 'Zapier', role: 'Senior Fullstack Engineer', period: 'Jan 2024 – Present', color: 'emerald' },
               { company: 'Mailchimp', role: 'Senior Software Engineer', period: 'May 2021 – Dec 2023', color: 'blue' },
-              { company: 'Fugue Auto', role: 'Co-founder / Engineer', period: 'Aug 2023 – Jan 2024', color: 'cyan' },
-              { company: 'Fugue AI', role: 'Manager / Co-founder', period: 'Oct 2022 – Jan 2024', color: 'purple' },
               { company: 'Pindrop Security', role: 'Software Engineer', period: 'Jan 2020 – May 2021', color: 'orange' },
               { company: 'Capital One', role: 'Software Engineer', period: 'Sep 2017 – Jun 2019', color: 'emerald' },
             ] as Job[]).map((job, i) => (
@@ -306,11 +304,44 @@ Answer questions concisely and enthusiastically. If asked about specific project
                 tech: ['Python', 'JavaScript', 'ML', 'GCP'],
                 color: 'purple'
               },
+            ] as Project[]).map((project, i) => (
+              <div key={i} className={`p-5 bg-slate-800/50 rounded-lg border border-slate-700 ${colorMap[project.color].projectHover} transition-all group`}>
+                <h3 className="font-bold text-lg mb-2 flex items-center gap-2">
+                  {project.name}
+                  <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </h3>
+                <p className="text-slate-400 text-sm mb-3">{project.desc}</p>
+                <div className="flex gap-2 flex-wrap">
+                  {project.tech.map((t, j) => (
+                    <span key={j} className="px-2 py-1 bg-slate-700/50 rounded text-xs text-slate-300">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Side Projects */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+            <Rocket className="w-6 h-6 text-emerald-400" />
+            ## Side Projects
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {([
               {
                 name: 'Fugue Auto',
-                desc: 'Built multi-modal AI-assisted vehicle diagnostic and repair app leveraging LLMs and vehicle sensor data for fleet management',
+                desc: 'Multi-modal AI-assisted vehicle diagnostic and repair app leveraging LLMs and vehicle sensor data for fleet management and connected operations',
                 tech: ['Python', 'LLMs', 'AI Models'],
                 color: 'cyan'
+              },
+              {
+                name: 'Fugue AI Art Studio',
+                desc: 'AI art studio using DALL-E 2 and Stable Diffusion deployed on AWS Sagemaker; grew to 500+ production users',
+                tech: ['Python', 'AWS Sagemaker', 'Stable Diffusion'],
+                color: 'purple'
               },
             ] as Project[]).map((project, i) => (
               <div key={i} className={`p-5 bg-slate-800/50 rounded-lg border border-slate-700 ${colorMap[project.color].projectHover} transition-all group`}>
